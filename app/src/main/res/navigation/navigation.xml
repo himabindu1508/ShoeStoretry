@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.udacity.shoestore.onboarding.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.udacity.shoestore.onboarding.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_shoeStoreFragment"
+            app:destination="@id/shoeStoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.udacity.shoestore.onboarding.InstructionsFragmnet"
+        android:label="InstructionsFragmnet"
+        tools:layout="@layout/fragment_instructions">
+        <action
+            android:id="@+id/action_instructionsFragmnet_to_shoeStoreFragment"
+            app:destination="@id/shoeStoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeStoreFragment"
+        android:name="com.udacity.shoestore.store.ShoeStoreFragment"
+        android:label="ShoeStoreFragment"
+        tools:layout="@layout/fragment_shoe_store">
+        <action
+            android:id="@+id/action_shoeStoreFragment_to_addNewShowFragment"
+            app:destination="@id/addNewShowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewShowFragment"
+        android:name="com.udacity.shoestore.store.AddNewShowFragment"
+        android:label="AddNewShowFragment"
+        tools:layout="@layout/fragment_add_new_shoe">
+        <action
+            android:id="@+id/action_addNewShowFragment_to_shoeStoreFragment"
+            app:destination="@id/shoeStoreFragment"
+            app:popUpTo="@id/shoeStoreFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

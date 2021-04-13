@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="sharedViewModel"
+            type="com.udacity.shoestore.models.ShoeStoreViewModel" />
+        
+        <variable
+            name="addNewShoeFragment"
+            type="com.udacity.shoestore.store.AddNewShowFragment" />
+
+        <variable
+            name="shoeVar"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/login_frag_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/loin_frag_guideline_begin" />
+
+
+    <!--    Shoe name-->
+    <TextView
+        android:id="@+id/enter_shoe_name_tv"
+        style="@style/label_style"
+        android:text="@string/shoe_name_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_name_edtv"
+        app:layout_constraintEnd_toStartOf="@+id/enter_shoe_name_edtv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+
+    <EditText
+        android:id="@+id/enter_shoe_name_edtv"
+        style="@style/login_credentials_editTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_name_hint"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/enter_shoe_size_edtv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/enter_shoe_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/neter_shoe_details_tv"
+        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:text="@={shoeVar.name}"
+        />
+
+    <!--    Shoe size-->
+    <TextView
+        android:id="@+id/shoe_size_tv"
+        style="@style/label_style"
+        android:text="@string/shoe_size_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_size_edtv"
+        app:layout_constraintEnd_toStartOf="@+id/enter_shoe_size_edtv"
+        app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+    <EditText
+        android:id="@+id/enter_shoe_size_edtv"
+        style="@style/login_credentials_editTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/enter_shoe_size_hint_text"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/enter_shoe_company_edit_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_shoe_name_edtv"
+        android:text="@={``+shoeVar.size}"
+        />
+
+
+    <!--    Shoe company-->
+    <TextView
+        android:id="@+id/shoe_company_tv"
+        style="@style/label_style"
+        android:text="@string/shoe_company_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_company_edit_tv"
+        app:layout_constraintEnd_toStartOf="@+id/enter_shoe_company_edit_tv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+
+    <EditText
+        android:id="@+id/enter_shoe_company_edit_tv"
+        style="@style/login_credentials_editTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/enter_shoe_company_hint_text"
+        android:inputType="textCapWords"
+        app:layout_constraintBottom_toTopOf="@+id/enter_shoe_description_edit_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_shoe_size_edtv"
+        android:text="@={shoeVar.company}"
+        />
+
+    <!--    Shoe description-->
+    <TextView
+        android:id="@+id/shoe_description_tv"
+        style="@style/label_style"
+        android:text="@string/shoe_description_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_description_edit_tv"
+        app:layout_constraintEnd_toStartOf="@+id/enter_shoe_description_edit_tv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+    <EditText
+        android:id="@+id/enter_shoe_description_edit_tv"
+        style="@style/login_credentials_editTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/enter_shoe_description_hint_text"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_bt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_shoe_company_edit_tv"
+        android:text="@={shoeVar.description}"
+        />
+
+    <!--    Shoe images-->
+
+    <Button
+        android:id="@+id/cancel_bt"
+        style="@style/button_style"
+        android:text="@string/cancel_bt_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_bt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="@{() -> sharedViewModel.cancelClicked()}"
+        />
+
+    <Button
+        android:id="@+id/save_bt"
+        style="@style/button_style"
+        android:text="@string/save_bt_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cancel_bt"
+        android:onClick="@{() -> sharedViewModel.addNewShoeToList(shoeVar)}"
+        />
+
+    <TextView
+        android:id="@+id/neter_shoe_details_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:padding="@dimen/label_start_padding"
+        android:text="@string/enter_shoe_details_tv_text"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/tv_heading_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

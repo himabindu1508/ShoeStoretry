@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    margins-->
+    <dimen name="horizontal_margin">8dp</dimen>
+
+<!--    paddings-->
+
+<!--    textsizes-->
+    <dimen name="button_text_size">18sp</dimen>
+    <dimen name="tv_heading_text_size">22sp</dimen>
+    <dimen name="label_margin">8dp</dimen>
+    <dimen name="label_padding">8dp</dimen>
+    <dimen name="button_padding">10dp</dimen>
+    <dimen name="label_editTv_bottom_margin">12dp</dimen>
+    <dimen name="loin_frag_guideline_begin">20dp</dimen>
+    <dimen name="label_start_padding">12dp</dimen>
+    <dimen name="margin_end">20dp</dimen>
+</resources>

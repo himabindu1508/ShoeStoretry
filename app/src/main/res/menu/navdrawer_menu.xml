@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/log_out"
+        android:title="@string/logout_itm_title" />
+    <item
+        android:id="@+id/instructionsFragment"
+        android:icon="@drawable/instructions"
+        android:title="@string/instructions__itm_title" />
+</menu>

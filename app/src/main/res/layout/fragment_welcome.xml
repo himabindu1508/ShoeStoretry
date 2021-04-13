@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+   >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    Create New login layout-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_new_login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="-62dp"
+        tools:layout_editor_absoluteY="-219dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/login_frag_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/loin_frag_guideline_begin" />
+
+        <TextView
+            android:id="@+id/name_label_tv"
+            style="@style/label_style"
+            android:text="@string/name_label"
+            app:layout_constraintBaseline_toBaselineOf="@+id/name_editTv"
+            app:layout_constraintEnd_toStartOf="@+id/name_editTv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+        <EditText
+            android:id="@+id/name_editTv"
+            style="@style/login_credentials_editTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_name_hint"
+            android:inputType="numberPassword"
+            app:layout_constraintBottom_toTopOf="@+id/enter_shoe_name_edtv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/name_label_tv"
+            app:layout_constraintTop_toBottomOf="@+id/signup_tv"
+            app:layout_constraintVertical_bias="0.13"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/enter_shoe_name_tv"
+            style="@style/label_style"
+            android:text="@string/email_tv_label"
+            app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_name_edtv"
+            app:layout_constraintEnd_toStartOf="@+id/enter_shoe_name_edtv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+        <EditText
+            android:id="@+id/enter_shoe_name_edtv"
+            style="@style/login_credentials_editTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_email_hint"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/enter_shoe_size_edtv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/enter_shoe_name_tv"
+            app:layout_constraintTop_toBottomOf="@+id/name_editTv" />
+
+        <TextView
+            android:id="@+id/password_label"
+            style="@style/label_style"
+            android:text="@string/password_label"
+            app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_size_edtv"
+            app:layout_constraintEnd_toStartOf="@+id/enter_shoe_size_edtv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+        <EditText
+            android:id="@+id/enter_shoe_size_edtv"
+            style="@style/login_credentials_editTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_password_hint"
+            android:inputType="numberPassword"
+            app:layout_constraintBottom_toTopOf="@+id/signup_bt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/password_label"
+            app:layout_constraintTop_toBottomOf="@+id/enter_shoe_name_edtv" />
+
+        <Button
+            android:id="@+id/signup_bt"
+            style="@style/button_style"
+            android:text="@string/signup_bt_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/signup_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_padding"
+            android:padding="@dimen/label_start_padding"
+            android:text="@string/signup_bt_text"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tv_heading_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/login_frag_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    Welcome screen for returning users-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/welcome_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-145dp">
+
+        <TextView
+            android:id="@+id/welcome_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_end"
+            android:fontFamily="sans-serif"
+            android:padding="@dimen/margin_end"
+            android:text="@string/welcome_text"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tv_heading_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_store_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
+            app:layout_constraintVertical_bias="0.25"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/welcome_image" />
+
+        <TextView
+            android:id="@+id/shoe_store_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/label_margin"
+            android:padding="@dimen/label_start_padding"
+            android:text="@string/store_caption"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/button_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/go_to_shop_from_welcome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/go_to_shop_from_welcome"
+            style="@style/button_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_shop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

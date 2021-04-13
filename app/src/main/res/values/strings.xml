@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="logout_itm_title">Log Out</string>
+    <string name="instructions__itm_title">Instructions</string>
+    <string name="email_tv_label">Email</string>
+    <string name="enter_your_email_hint">Enter your email</string>
+    <string name="password_label">Password</string>
+    <string name="enter_password_hint">Enter your password</string>
+    <string name="name_label">Name</string>
+    <string name="enter_name_hint">Enter your name</string>
+    <string name="signup_bt_text">SignUp</string>
+    <string name="login_bt_text">LogIn</string>
+    <string name="go_to_shop">Go to shop</string>
+
+    <string name="instructions_set_one">Login with your credentials to visit shop.</string>
+    <string name="instructions_set_two">First thing to do after opening the shop is to add newly arrived stock to inventory.</string>
+    <string name="welcome_text">Welcome</string>
+    <string name="store_caption">"Be energized to walk more ..."</string>
+
+    <string name="fab_content_description">Button to add new shoe to store</string>
+
+    <string name="shoe_name_text">Name</string>
+    <string name="enter_shoe_name_hint_text">Enter shoe name</string>
+
+    <string name="shoe_size_text">Size</string>
+    <string name="enter_shoe_size_hint_text">Enter shoe size</string>
+
+    <string name="shoe_company_text">Company</string>
+    <string name="enter_shoe_company_hint_text">Enter shoe company</string>
+
+    <string name="shoe_description_text">Description</string>
+    <string name="enter_shoe_description_hint_text">Enter shoe description</string>
+
+    <string name="cancel_bt_text">Cancel</string>
+    <string name="save_bt_text">Save</string>
+    <string name="enter_shoe_details_tv_text">Enter shoe details</string>
+    <string name="ourStore">Our Store</string>
+</resources>

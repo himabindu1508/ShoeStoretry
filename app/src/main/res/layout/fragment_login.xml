@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.onboarding.LoginViewModel" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".onboarding.LoginFragment">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/login_frag_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/loin_frag_guideline_begin" />
+
+            <TextView
+                android:id="@+id/email_label"
+                style="@style/label_style"
+                android:text="@string/email_tv_label"
+                app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_name_edtv"
+                app:layout_constraintEnd_toStartOf="@+id/enter_shoe_name_edtv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/login_frag_guideline" />
+
+            <EditText
+                android:id="@+id/enter_shoe_name_edtv"
+                style="@style/login_credentials_editTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_your_email_hint"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/enter_shoe_size_edtv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/email_label"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:text="@={loginViewModel.email}"
+                />
+<!--            app:textChangedListener="@={loginViewModel.emailTextWatcher}"-->
+
+
+            <TextView
+                android:id="@+id/password_label"
+                style="@style/label_style"
+                android:text="@string/password_label"
+                app:layout_constraintBaseline_toBaselineOf="@+id/enter_shoe_size_edtv"
+                app:layout_constraintEnd_toStartOf="@+id/enter_shoe_size_edtv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/login_frag_guideline"
+                />
+
+            <EditText
+                android:id="@+id/enter_shoe_size_edtv"
+                style="@style/login_credentials_editTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_password_hint"
+                android:inputType="numberPassword"
+                app:layout_constraintBottom_toTopOf="@+id/signup_bt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/password_label"
+                app:layout_constraintTop_toBottomOf="@+id/enter_shoe_name_edtv"
+                android:text="@={loginViewModel.password}"
+                />
+
+            <Button
+                android:id="@+id/signup_bt"
+                style="@style/button_style"
+                android:text="@string/signup_bt_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_bt"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="@{() -> loginViewModel.onSigUpClicked()}"
+                />
+
+            <Button
+                android:id="@+id/login_bt"
+                style="@style/button_style"
+                android:text="@string/login_bt_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/signup_bt"
+                android:onClick="@{() -> loginViewModel.onLogInClicked()}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

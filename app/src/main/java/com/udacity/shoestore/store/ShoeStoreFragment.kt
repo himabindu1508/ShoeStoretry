@@ -37,7 +37,12 @@ class ShoeStoreFragment : Fragment()
         })
 
         sharedViewModel.navigateToAddNewShoe.observe(viewLifecycleOwner, Observer {
-            findNavController().navigate(ShoeStoreFragmentDirections.actionShoeStoreFragmentToAddNewShowFragment())
+            if(it == true)
+            {
+                findNavController().navigate(ShoeStoreFragmentDirections.actionShoeStoreFragmentToAddNewShowFragment())
+                sharedViewModel.resetNavigateToAddNewShoe()
+            }
+
         })
 
         return binding.root

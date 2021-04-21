@@ -16,8 +16,6 @@ class InstructionsFragmnet : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding : FragmentInstructionsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
 
-        Timber.i("InstructionsFragmnet")
-
         binding.goToShopFromInstructions.setOnClickListener {
             findNavController().navigate(InstructionsFragmnetDirections.actionInstructionsFragmnetToShoeStoreFragment())
         }

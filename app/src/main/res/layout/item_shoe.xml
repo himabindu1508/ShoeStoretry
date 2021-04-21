@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/button_padding"
-    android:padding="@dimen/button_padding">
+    >
 
     <!--    <ImageView-->
     <!--        android:id="@+id/quality_image"-->
@@ -41,7 +41,7 @@
         tools:text="Sneakers" />
 
     <TextView
-        android:id="@+id/shoe_shoesize"
+        android:id="@+id/shoe_lastparam"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/horizontal_margin"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoe_size"
+        app:layout_constraintTop_toBottomOf="@+id/shoe_lastparam"
         tools:text="Sneakers" />
 
 

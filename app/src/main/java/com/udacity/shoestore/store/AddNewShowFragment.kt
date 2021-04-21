@@ -1,4 +1,4 @@
-package com.udacity.shoestore.store
+   package com.udacity.shoestore.store
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +16,7 @@ import timber.log.Timber
 
 class AddNewShowFragment : Fragment()
 {
-    private val sharedViewModel : ShoeStoreViewModel by activityViewModels()
+    private val viewModel : ShoeStoreViewModel by activityViewModels()
     private var binding : FragmentAddNewShoeBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -25,15 +25,23 @@ class AddNewShowFragment : Fragment()
 
         Timber.i("AddNewShowFragment")
 
-        sharedViewModel.eventOnCancel.observe(viewLifecycleOwner, Observer {
-            //saveComplete()
-            findNavController().navigate(AddNewShowFragmentDirections.actionAddNewShowFragmentToShoeStoreFragment())
+        viewModel.eventOnCancel.observe(viewLifecycleOwner, Observer {isCancelled ->
+            if(isCancelled)
+            {
+                saveComplete()
+                viewModel.resetSaveCancelVars()
+            }
         })
 
-        sharedViewModel.eventOnSave.observe(viewLifecycleOwner, Observer {
-            //saveComplete()
-            findNavController().navigate(AddNewShowFragmentDirections.actionAddNewShowFragmentToShoeStoreFragment())
+        viewModel.eventOnSave.observe(viewLifecycleOwner, Observer {
+            if(it)
+            {
+                saveComplete()
+                viewModel.resetSaveCancelVars()
+            }
         })
+
+        fragBinding.shoeVar = viewModel.boundShoe
 
         return fragBinding.root
     }
@@ -43,7 +51,8 @@ class AddNewShowFragment : Fragment()
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-            sharedViewModel = sharedViewModel
+            sharedViewModel = viewModel
+            shoeVar = viewModel.boundShoe
             addNewShoeFragment = this@AddNewShowFragment
         }
     }

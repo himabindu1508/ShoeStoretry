@@ -9,19 +9,7 @@ import javax.xml.validation.Validator
 
 class LoginViewModel : ViewModel() {
 
-    var email = MutableLiveData<String>()
+    val email = MutableLiveData<String>()
     var password = MutableLiveData<String>()
 
-    fun onSigUpClicked()
-    {
-        Timber.i("onSigUpClicked")
-    }
-
-    fun onLogInClicked()
-    {
-        Timber.i("onLogInClicked")
-        Timber.i("email = $email")
-        Timber.i("password = ${password.toString()}")
-
-    }
 }

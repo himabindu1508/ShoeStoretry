@@ -30,7 +30,7 @@ class ShoeStoreAdapter : RecyclerView.Adapter<ShoeStoreAdapter.ViewHolder>(){
 
     class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         val shoeName: TextView = itemView.findViewById(R.id.shoe_name)
-        val shoeSize: TextView = itemView.findViewById(R.id.shoe_shoesize)
+        val shoeSize: TextView = itemView.findViewById(R.id.shoe_lastparam)
         val shoeCompany: TextView = itemView.findViewById(R.id.shoe_company)
         val shoeDescription: TextView = itemView.findViewById(R.id.shoe_description)
 

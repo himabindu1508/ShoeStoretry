@@ -7,6 +7,10 @@
         <variable
             name="loginViewModel"
             type="com.udacity.shoestore.onboarding.LoginViewModel" />
+
+        <variable
+            name="loginFragment"
+            type="com.udacity.shoestore.onboarding.LoginFragment" />
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +85,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/login_bt"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                android:onClick="@{() -> loginViewModel.onSigUpClicked()}"
+                android:onClick="@{() -> loginFragment.onSigUpClicked()}"
                 />
 
             <Button
@@ -92,7 +96,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/signup_bt"
-                android:onClick="@{() -> loginViewModel.onLogInClicked()}"
+                android:onClick="@{() -> loginFragment.onLogInClicked()}"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

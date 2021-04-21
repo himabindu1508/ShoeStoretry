@@ -39,7 +39,7 @@ class ShoeStoreAdapter : RecyclerView.Adapter<ShoeStoreAdapter.ViewHolder>(){
             shoeName.text = item.name
             shoeCompany.text = item.company
             shoeDescription.text = item.description
-            //shoeSize.text = item.
+            shoeSize.text = item.size.toString()
         }
 
         companion object {

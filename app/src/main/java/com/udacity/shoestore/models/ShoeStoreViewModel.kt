@@ -48,6 +48,10 @@ class ShoeStoreViewModel : ViewModel()
         _shoeList.value?.add(shoeBallet)
     }
 
+    fun reInitShoe() {
+        boundShoe =  Shoe("", 0.0, "", "")
+    }
+
     //{1} : Functions --> Navigate to new shoe add fragment
     fun onAddNewShowClicked() {
         _navigateToAddNewShoe.value = true

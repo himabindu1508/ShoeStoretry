@@ -49,6 +49,8 @@ class AddNewShowFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.reInitShoe()
+
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
             sharedViewModel = viewModel

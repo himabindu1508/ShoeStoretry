@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/instructions__itm_title" />
+    <item
+        android:id="@+id/loginFragment"
+        android:title="@string/logout_itm_title"
+        android:icon="@drawable/log_out"/>
 </menu>

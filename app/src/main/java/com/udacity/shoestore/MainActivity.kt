@@ -2,46 +2,48 @@ package com.udacity.shoestore
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
+import com.google.android.material.navigation.NavigationView
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity()
 {
-    private lateinit var drawerLayout : DrawerLayout
+    private lateinit var appBarConfiguration : AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
-        drawerLayout = binding.drawerLayout
 
-        val navController = this.findNavController(R.id.myNavHostFragment)
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-        NavigationUI.setupWithNavController(binding.navView, navController)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
-        //prevent any gestures if not in welcome screen
-        navController.addOnDestinationChangedListener{ nc : NavController, nd: NavDestination, bundle : Bundle? ->
-            if(nd.id == R.id.welcomeFragment)
-            {
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-            }
-            else
-            {
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-            }
-        }
+        val host: NavHostFragment = supportFragmentManager
+            .findFragmentById(R.id.myNavHostFragment) as NavHostFragment? ?: return
+        // Set up Action Bar
+        val navController = host.navController
+        //val drawerLayout : DrawerLayout? = findViewById(R.id.drawerLayout)
+
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.loginFragment, R.id.welcomeFragment, R.id.shoeStoreFragment)
+        )
+        setupActionBar(navController, appBarConfiguration)
     }
 
-    override fun onSupportNavigateUp(): Boolean
-    {
-        val navController = this.findNavController(R.id.myNavHostFragment)
-        return NavigationUI.navigateUp(navController, drawerLayout)
+    private fun setupActionBar(navController: NavController, appBarConfig : AppBarConfiguration) {
+        setupActionBarWithNavController(navController, appBarConfig)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.myNavHostFragment).navigateUp(appBarConfiguration)
     }
 }

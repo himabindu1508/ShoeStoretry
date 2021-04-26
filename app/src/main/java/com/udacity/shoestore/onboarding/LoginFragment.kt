@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
+import com.udacity.shoestore.models.LoginViewModel
 import timber.log.Timber
 
 class LoginFragment : Fragment()
@@ -19,21 +20,33 @@ class LoginFragment : Fragment()
     private lateinit var viewModel : LoginViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val fragbinding = FragmentLoginBinding.inflate(inflater, container, false)
-        binding = fragbinding
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login ,container, false)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        binding.loginViewModel = viewModel
+        binding.setLifecycleOwner(this)
+
+        binding.loginCreds = viewModel.credentials
+        viewModel.reInitCredentials()
+
+        viewModel.userLoggedIn.observe(viewLifecycleOwner, Observer { isLogInClicked ->
+            if(isLogInClicked)
+            {
+                onLogInClicked()
+                viewModel.resetNavVars()
+            }
+        })
+
+        viewModel.newUserLoggedIn.observe(viewLifecycleOwner, Observer { isNewUserClicked ->
+            if(isNewUserClicked)
+            {
+                onSigUpClicked()
+                viewModel.resetNavVars()
+            }
+        })
+
         Timber.i("LoginFragment")
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-            loginViewModel = viewModel
-            loginFragment = this@LoginFragment
-        }
     }
 
     fun onSigUpClicked()

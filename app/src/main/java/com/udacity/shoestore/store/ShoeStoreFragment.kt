@@ -56,7 +56,13 @@ class ShoeStoreFragment : Fragment()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return (NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item))
+        if(item.itemId == R.id.login_Fragment)
+        {
+            //findNavController().navigate(ShoeStoreFragmentDirections)
+            Timber.i("OVERFLOW_MENU : LOG_OUT")
+        }
+        //return (NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item))
+        return (super.onOptionsItemSelected(item))
     }
 
 }

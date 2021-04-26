@@ -5,12 +5,17 @@
 
     <data>
         <variable
+            name="loginCreds"
+            type="com.udacity.shoestore.models.LoginCredentials" />
+
+        <variable
             name="loginViewModel"
-            type="com.udacity.shoestore.onboarding.LoginViewModel" />
+            type="com.udacity.shoestore.models.LoginViewModel" />
 
         <variable
             name="loginFragment"
             type="com.udacity.shoestore.onboarding.LoginFragment" />
+
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +52,7 @@
                 app:layout_constraintStart_toEndOf="@+id/email_label"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                android:text="@={loginViewModel.email}"
+                android:text="@={loginCreds.email}"
                 />
 <!--            app:textChangedListener="@={loginViewModel.emailTextWatcher}"-->
 
@@ -74,7 +79,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/password_label"
                 app:layout_constraintTop_toBottomOf="@+id/enter_shoe_name_edtv"
-                android:text="@={loginViewModel.password}"
+                android:text="@={loginCreds.password}"
                 />
 
             <Button
@@ -85,7 +90,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/login_bt"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                android:onClick="@{() -> loginFragment.onSigUpClicked()}"
+                android:onClick="@{() -> loginViewModel.onNewUserBtClicked()}"
                 />
 
             <Button
@@ -96,7 +101,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/signup_bt"
-                android:onClick="@{() -> loginFragment.onLogInClicked()}"
+                android:onClick="@{() -> loginViewModel.onLoginBtClicked(loginCreds)}"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,15 +9,17 @@ import timber.log.Timber
 
 class ShoeStoreViewModel : ViewModel()
 {
-    // {1} : Variables --> Navigate to new shoe add fragment
+    // Navigation vars
     private val _navigateToAddNewShoe = MutableLiveData<Boolean?>()
     val navigateToAddNewShoe : LiveData<Boolean?>
     get() = _navigateToAddNewShoe
 
+    // Shoe list
     private val _shoeList = MutableLiveData(mutableListOf<Shoe>())
     val shoeList : LiveData<MutableList<Shoe>>
     get() = _shoeList
 
+    // Event state vars : Save, Cancel
     private val _eventOnSave = MutableLiveData<Boolean>()
     val eventOnSave : LiveData<Boolean>
     get() = _eventOnSave
@@ -26,29 +28,24 @@ class ShoeStoreViewModel : ViewModel()
     val eventOnCancel : LiveData<Boolean>
     get() = _eventOnCancel
 
-    //shoe var
+    // UI vars
     var boundShoe: Shoe
-
-    //Textview string
     var shoesString = Transformations.map(shoeList) { shoes ->
         formatShoes(shoes)
     }
 
+    // Initializations
     init {
         _eventOnSave.value = false
         _eventOnCancel.value = false
         _navigateToAddNewShoe.value = false
-
         boundShoe = Shoe("", 0.0, "", "")
         initShoeList()
     }
 
-    //Populate list of shoes
     private fun initShoeList() {
-
         val shoeAnkle = Shoe("Ankle Boots", 9.0 , "Inc .5",  "Boots")
         val shoeBallet = Shoe("Ballet Shoe", 6.0 , "Gucci", "La la la")
-
         _shoeList.value?.add(shoeAnkle)
         _shoeList.value?.add(shoeBallet)
     }
@@ -66,9 +63,18 @@ class ShoeStoreViewModel : ViewModel()
         _navigateToAddNewShoe.value = false
     }
 
-    //{2} : Function --> Add new show
+    //{2} : Functions --> Navigate back [on cancel]
+    fun cancelClicked() {
+        _eventOnCancel.value = true
+    }
+
+    fun resetSaveCancelVars() {
+        _eventOnSave.value = false
+        _eventOnCancel.value = false
+    }
+
+    //{3} : Function --> Add new show [on save]
      fun addNewShoeToList(newShoe : Shoe) {
-        Timber.i("Shoe : ${newShoe.name} + ${newShoe.company} + ${newShoe.description} + ${newShoe.size}")
         _shoeList.value?.add(newShoe)
         _eventOnSave.value = true
         updateStoreUI()
@@ -79,14 +85,4 @@ class ShoeStoreViewModel : ViewModel()
             formatShoes(shoes)
         }
     }
-
-    fun cancelClicked() {
-        _eventOnCancel.value = true
-    }
-
-    fun resetSaveCancelVars() {
-        _eventOnSave.value = false
-        _eventOnCancel.value = false
-    }
-
 }

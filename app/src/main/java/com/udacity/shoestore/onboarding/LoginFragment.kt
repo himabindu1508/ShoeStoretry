@@ -44,8 +44,6 @@ class LoginFragment : Fragment()
             }
         })
 
-        Timber.i("LoginFragment")
-
         return binding.root
     }
 

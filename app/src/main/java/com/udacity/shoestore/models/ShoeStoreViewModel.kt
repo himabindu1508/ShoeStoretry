@@ -2,7 +2,9 @@ package com.udacity.shoestore.models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.udacity.shoestore.formatShoes
 import timber.log.Timber
 
 class ShoeStoreViewModel : ViewModel()
@@ -27,6 +29,11 @@ class ShoeStoreViewModel : ViewModel()
     //shoe var
     var boundShoe: Shoe
 
+    //Textview string
+    var shoesString = Transformations.map(shoeList) { shoes ->
+        formatShoes(shoes)
+    }
+
     init {
         _eventOnSave.value = false
         _eventOnCancel.value = false
@@ -34,15 +41,13 @@ class ShoeStoreViewModel : ViewModel()
 
         boundShoe = Shoe("", 0.0, "", "")
         initShoeList()
-
-        Timber.i("ViewModelCreated")
     }
 
     //Populate list of shoes
     private fun initShoeList() {
 
-        val shoeAnkle = Shoe("Ankle Boots", 9.0 , "Gucci",  "Boots")
-        val shoeBallet = Shoe("Ballet Shoe", 6.0 , "Company", "La la la")
+        val shoeAnkle = Shoe("Ankle Boots", 9.0 , "Inc .5",  "Boots")
+        val shoeBallet = Shoe("Ballet Shoe", 6.0 , "Gucci", "La la la")
 
         _shoeList.value?.add(shoeAnkle)
         _shoeList.value?.add(shoeBallet)
@@ -66,6 +71,13 @@ class ShoeStoreViewModel : ViewModel()
         Timber.i("Shoe : ${newShoe.name} + ${newShoe.company} + ${newShoe.description} + ${newShoe.size}")
         _shoeList.value?.add(newShoe)
         _eventOnSave.value = true
+        updateStoreUI()
+    }
+
+    fun updateStoreUI(){
+        shoesString = Transformations.map(shoeList) { shoes ->
+            formatShoes(shoes)
+        }
     }
 
     fun cancelClicked() {

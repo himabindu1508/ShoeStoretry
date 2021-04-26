@@ -12,10 +12,6 @@
             name="loginViewModel"
             type="com.udacity.shoestore.models.LoginViewModel" />
 
-        <variable
-            name="loginFragment"
-            type="com.udacity.shoestore.onboarding.LoginFragment" />
-
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout

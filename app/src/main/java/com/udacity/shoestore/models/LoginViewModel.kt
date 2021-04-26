@@ -28,7 +28,9 @@ class LoginViewModel : ViewModel()
         credentials = LoginCredentials("", "")
     }
 
-    fun onLoginBtClicked(){
+    fun onLoginBtClicked(loginDetails : LoginCredentials){
+        Timber.i("email = ${loginDetails.email}")
+        Timber.i("password = ${loginDetails.password}")
         _userLoggedIn.value = true
     }
 

@@ -23,8 +23,6 @@ class AddNewShowFragment : Fragment()
         val fragBinding = FragmentAddNewShoeBinding.inflate(inflater, container, false)
         binding = fragBinding
 
-        Timber.i("AddNewShowFragment")
-
         viewModel.eventOnCancel.observe(viewLifecycleOwner, Observer {isCancelled ->
             if(isCancelled)
             {

@@ -22,19 +22,8 @@ class ShoeStoreFragment : Fragment()
         val binding :FragmentShoeStoreBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_shoe_store, container, false)
 
-        Timber.i("ShoeStoreFragment")
-
         binding.shoeStoreViewModel = sharedViewModel
         binding.setLifecycleOwner(this)
-
-        val adapter = ShoeStoreAdapter()
-        binding.shoeRcView.adapter = adapter
-
-        sharedViewModel.shoeList.observe(viewLifecycleOwner, Observer{
-            it?.let{
-                adapter.data = it
-            }
-        })
 
         sharedViewModel.navigateToAddNewShoe.observe(viewLifecycleOwner, Observer {
             if(it == true)
@@ -42,7 +31,6 @@ class ShoeStoreFragment : Fragment()
                 findNavController().navigate(ShoeStoreFragmentDirections.actionShoeStoreFragmentToAddNewShowFragment())
                 sharedViewModel.resetNavigateToAddNewShoe()
             }
-
         })
 
         setHasOptionsMenu(true)
@@ -58,8 +46,7 @@ class ShoeStoreFragment : Fragment()
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.login_Fragment)
         {
-            //findNavController().navigate(ShoeStoreFragmentDirections)
-            Timber.i("OVERFLOW_MENU : LOG_OUT")
+            findNavController().navigate(ShoeStoreFragmentDirections.actionShoeStoreFragmentToLoginFragment())
         }
         //return (NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) || super.onOptionsItemSelected(item))
         return (super.onOptionsItemSelected(item))

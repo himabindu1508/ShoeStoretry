@@ -25,3 +25,22 @@ fun formatShoes(shoes : List<Shoe>) : Spanned {
         return Html.fromHtml(sb.toString())
     }
 }
+
+fun formatOneShoe(shoe : Shoe) : Spanned {
+    val sb = java.lang.StringBuilder()
+    sb.apply {
+        append("\t\t ${shoe.name}<br>")
+        append("\t\t ${shoe.size}<br>")
+        append("\t\t ${shoe.company}<br>")
+        append("\t\t ${shoe.description}<br><br><br>")
+    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+    {
+        return Html.fromHtml(sb.toString(), Html.FROM_HTML_MODE_LEGACY)
+    }
+    else
+    {
+        @Suppress("DEPRECATION")
+        return Html.fromHtml(sb.toString())
+    }
+}

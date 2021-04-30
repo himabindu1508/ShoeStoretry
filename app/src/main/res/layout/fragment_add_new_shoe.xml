@@ -18,6 +18,10 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+<!--    It is a complicated layout with vertical guideline, 4 textviews, 4 edittexts and 2 buttons. -->
+<!--    Why Constrain layout - -->
+<!--    1. To add in line labels to edit texts (baseline constraint solves this)-->
+<!--    2. Linear layout cannot have vertical orientation for some and horizontal orientation for some other views. Chains in constraint layout help here.-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">

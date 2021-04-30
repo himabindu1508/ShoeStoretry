@@ -1,7 +1,12 @@
 package com.udacity.shoestore.store
 
+import android.app.ActionBar
+import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.*
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -11,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeStoreBinding
+import com.udacity.shoestore.formatOneShoe
 import com.udacity.shoestore.models.ShoeStoreViewModel
 import timber.log.Timber
 
@@ -33,9 +39,31 @@ class ShoeStoreFragment : Fragment()
             }
         })
 
+        sharedViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoes ->
+            shoes.forEach{ shoe ->
+                val textView : TextView = TextView(requireNotNull(this.activity))
+                val params : LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                params.setMargins(5,0,5,0)
+                textView.layoutParams = params
+                textView.text = formatOneShoe(shoe)
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F)
+                textView.setTextColor(Color.BLACK)
+                textView.setPadding(10,0,10,0)
+
+                binding.shoeListLlm.addView(textView)
+            }
+        })
+
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    fun displayShoes() {
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

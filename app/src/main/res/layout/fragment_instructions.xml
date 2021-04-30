@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+<!--    Constraint layout because I need the imageview, textviews arrange vertically but I also need the button placed at the bottom of parent.-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">

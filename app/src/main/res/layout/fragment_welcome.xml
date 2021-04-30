@@ -4,68 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
    >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/welcome_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-145dp">
 
-        <TextView
-            android:id="@+id/welcome_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_end"
-            android:fontFamily="sans-serif"
-            android:padding="@dimen/margin_end"
-            android:text="@string/welcome_text"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/tv_heading_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <!--    Constraint layout because I need the imageview, textviews arrange vertically but I also need the button placed at the bottom of parent.-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcome_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="-145dp">
+
+            <TextView
+                android:id="@+id/welcome_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_end"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/margin_end"
+                android:text="@string/welcome_text"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/tv_heading_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/shoe_store_caption"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
-            app:layout_constraintVertical_bias="0.25"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:srcCompat="@drawable/welcome_image" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/shoe_store_caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
+                app:layout_constraintVertical_bias="0.25"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/welcome_image" />
 
-        <TextView
-            android:id="@+id/shoe_store_caption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/label_margin"
-            android:padding="@dimen/label_start_padding"
-            android:text="@string/store_caption"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/button_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/go_to_shop_from_welcome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <TextView
+                android:id="@+id/shoe_store_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/label_margin"
+                android:padding="@dimen/label_start_padding"
+                android:text="@string/store_caption"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/go_to_shop_from_welcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <Button
-            android:id="@+id/go_to_shop_from_welcome"
-            style="@style/button_style"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/go_to_instructions"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/go_to_shop_from_welcome"
+                style="@style/button_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/go_to_instructions"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>

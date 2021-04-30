@@ -13,39 +13,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="gone">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/shoesStoreTitle"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/loin_frag_guideline_begin"-->
+<!--            android:padding="@dimen/horizontal_margin"-->
+<!--            android:text="@string/ourStore"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="@dimen/tv_heading_text_size"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/shoeStoreShoes_tv"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_margin="@dimen/label_start_padding"-->
+<!--            android:padding="@dimen/button_padding"-->
+<!--            android:text="@{shoeStoreViewModel.shoesString}"-->
+<!--            android:textAlignment="viewStart"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/shoesStoreTitle" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/shoesStoreTitle"
-            android:layout_width="0dp"
+<!--        Objective : Display shoe objects in a textview one under another vertically.-->
+<!--        This can be achieved easily with a simple layout like - Linear layout with orientation set to "vertical"-->
+<!--   -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/loin_frag_guideline_begin"
-            android:padding="@dimen/horizontal_margin"
-            android:text="@string/ourStore"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/tv_heading_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:id="@+id/shoeList_llm">
 
-        <TextView
-            android:id="@+id/shoeStoreShoes_tv"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/label_start_padding"
-            android:padding="@dimen/button_padding"
-            android:text="@{shoeStoreViewModel.shoesString}"
-            android:textAlignment="viewStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoesStoreTitle" />
+            <TextView
+                android:id="@+id/shoesStoreTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loin_frag_guideline_begin"
+                android:padding="@dimen/horizontal_margin"
+                android:text="@string/ourStore"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/tv_heading_text_size"
+                />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            TextViews for each Shoe object-->
+        </LinearLayout>
+
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add__new_shoe_bt"
@@ -61,4 +92,5 @@
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

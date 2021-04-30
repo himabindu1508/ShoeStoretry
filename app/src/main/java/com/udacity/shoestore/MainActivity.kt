@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity()
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        //val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
         val host: NavHostFragment = supportFragmentManager
